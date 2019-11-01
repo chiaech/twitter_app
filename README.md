@@ -1,6 +1,6 @@
 # Project 3 - Twitter
 
-**twotter_app** is a basic twitter app to read your tweets.
+**twitter_app** is a basic twitter app to read your tweets.
 
 Time spent: **1.5** hours spent in total
 
