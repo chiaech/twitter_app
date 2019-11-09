@@ -10,12 +10,16 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     
+    @IBOutlet var tweetTable: UITableView!
+   
     var tweetArray = [NSDictionary]()
     var numberOfTweet: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweet()
+        self.tweetTable.rowHeight = UITableView.automaticDimension
+        self.tweetTable.estimatedRowHeight = 150
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,6 +64,10 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data {
             cell.profileImage.image = UIImage(data: imageData)
         }
+        
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool )
 
         return cell
     }
@@ -73,7 +81,4 @@ class HomeTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return tweetArray.count
     }
-
-  
-
 }
